@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Name Generator</h2>
+
+   
+    <p>
+        <!--Racehere
+        Subrace here. Both use <select>-->
+        Male:<input type="radio" name="gender" id="gender_Male" value="Male" />
+        <br>
+    <p>
+        Female:<input type="radio" name="gender" id="gender_Female" value="Female" />
+        <br>
+        <button type="button" onClick="generateName()">Generate</button>
+
+    <p id="demo"></p>
+    <script>
+        var femaleFirstNames = ["Anva ", "Dasha ", "Dima ", "Olga ", "Westra ", "Zlatara "];
+        var maleFirstNames = ["Avan ", "Ostaram ", "Petro ", "Stor ", "Taman ", "Thalaman ", "Urth "];
+        var lastNames = ["Dashkev", "Hargroth", "Laboda", "Lackman", "Stonar", "Stormwind", "Sulyma"]
+
+
+        
+
+        
+        
+
+        if (document.getElementById('gender_Male').checked) {
+            var randFullName = randMale.concat(randLast);
+        } else if (document.getElementById('gender_Female').checked) {
+            var randFullName = randFemale.concat(randLast);
+        }
+
+        function generateName() {
+            var randFemale = femaleFirstNames[Math.floor(Math.random() * femaleFirstNames.length)];
+            var randMale = maleFirstNames[Math.floor(Math.random() * maleFirstNames.length)];
+            var randLast = lastNames[Math.floor(Math.random() * lastNames.length)];
+           
+           
+            if (document.getElementById('gender_Male').checked) {
+                var randFullName = randMale.concat(randLast);
+            } else if (document.getElementById('gender_Female').checked) {
+                var randFullName = randFemale.concat(randLast);
+            }
+            document.getElementById("demo").innerHTML = randFullName;
+        }
+
+//function myFunction(){ document.getElementById("demo").innerHTML = rand; }
+
+    </script>
+
+</body>
+</html> 
