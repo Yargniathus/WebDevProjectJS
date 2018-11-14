@@ -4,46 +4,91 @@
 
     <h2>Name Generator</h2>
 
-   
+
     <p>
         <!--Racehere
         Subrace here. Both use <select>-->
         Male:<input type="radio" name="gender" id="gender_Male" value="Male" />
         <br>
-    <p>
+
         Female:<input type="radio" name="gender" id="gender_Female" value="Female" />
         <br>
+    <p>
         <button type="button" onClick="generateName()">Generate</button>
+
+        <select id="raceSelect" onchange="generateName()">
+            <option value="arkaiun">Human (Arkaiun)</option>
+            <option value="bedine">Human (Bedine)</option>
+            <option value="ffolk">Human (Ffolk)</option>
+            <option value="nar">Human (Nar)</option>
+        </select>
 
     <p id="demo"></p>
     <script>
-        var femaleFirstNames = ["Anva ", "Dasha ", "Dima ", "Olga ", "Westra ", "Zlatara "];
-        var maleFirstNames = ["Avan ", "Ostaram ", "Petro ", "Stor ", "Taman ", "Thalaman ", "Urth "];
-        var lastNames = ["Dashkev", "Hargroth", "Laboda", "Lackman", "Stonar", "Stormwind", "Sulyma"]
-
-
         
+        //Human: Arkaiun
+        var arkaiunFemaleFirstNames = ["Glouris ", "Maeve ", "Sevaera ", "Xaemarra ", "Zraela "];
+        var arkaiunMaleFirstNames = ["Houn ", "Rhivaun ", "Umbril ", "Xaemar ", "Zeltaebar "];
+        var arkaiunLastNames = ["Lharaendo ", "Mristar ", "Wyndael "]
 
-        
-        
+        //Human: Bedine
+        var bedineFemaleFirstNames = ["Aisha ", "Farah ", "Nura ", "Rashida ", "Zalebyeh "];
+        var bedineMaleFirstNames = ["Aali ", "Rashid ", "Tahnon ", "Tanzim ", "Whalide "];
+        var bedineLastNames = ["Alaii ", "Bordjia ", "Clelarra ", "Desai ", "Dakawa ", "Dursalai ", "Goldor ", "Iriphawa ", "Kellordrai ", "Lalajar ", "Qahtan ", "Yethtai ", "Zazalaar "]
 
-        if (document.getElementById('gender_Male').checked) {
-            var randFullName = randMale.concat(randLast);
-        } else if (document.getElementById('gender_Female').checked) {
-            var randFullName = randFemale.concat(randLast);
-        }
+        //Human: Ffolk
+        var ffolkFemaleFirstNames = ["Alicia ", "Gennifer ", "Meridith ", "Elaine ", "Olivia "];
+        var ffolkMaleFirstNames = ["Artur ", "Bern ", "Colin ", "Manfred ", "Tristan "];
+        var ffolkLastNames = ["Archer ", "Gareth ", "Leed ", "Kendrick ", "Morgan ", "Waters "]
+
+        //Human: Nar
+        var narFemaleFirstNames = ["Anva ", "Dasha ", "Dima ", "Olga ", "Westra ", "Zlatara "];
+        var narMaleFirstNames = ["Avan ", "Ostaram ", "Petro ", "Stor ", "Taman ", "Thalaman ", "Urth "];
+        var narLastNames = ["Dashkev", "Hargroth", "Laboda", "Lackman", "Stonar", "Stormwind", "Sulyma"]
+
+
+
+
+
+
+
+       
 
         function generateName() {
-            var randFemale = femaleFirstNames[Math.floor(Math.random() * femaleFirstNames.length)];
-            var randMale = maleFirstNames[Math.floor(Math.random() * maleFirstNames.length)];
-            var randLast = lastNames[Math.floor(Math.random() * lastNames.length)];
-           
-           
+            var race = document.getElementById("raceSelect").value;
+
+            if (race == "arkaiun") {
+                //Human: Arkaiun
+                var randFemale = arkaiunFemaleFirstNames[Math.floor(Math.random() * arkaiunFemaleFirstNames.length)];
+                var randMale = arkaiunMaleFirstNames[Math.floor(Math.random() * arkaiunMaleFirstNames.length)];
+                var randLast = arkaiunLastNames[Math.floor(Math.random() * arkaiunLastNames.length)];
+            }
+            if (race == "bedine") {
+                //Human: Nar
+                var randFemale = bedineFemaleFirstNames[Math.floor(Math.random() * bedineFemaleFirstNames.length)];
+                var randMale = bedineMaleFirstNames[Math.floor(Math.random() * bedineMaleFirstNames.length)];
+                var randLast = bedineLastNames[Math.floor(Math.random() * bedineLastNames.length)];
+            }
+            if (race == "ffolk") {
+                //Human: Nar
+                var randFemale = ffolkFemaleFirstNames[Math.floor(Math.random() * ffolkFemaleFirstNames.length)];
+                var randMale = ffolkMaleFirstNames[Math.floor(Math.random() * ffolkMaleFirstNames.length)];
+                var randLast = ffolkLastNames[Math.floor(Math.random() * ffolkLastNames.length)];
+            }
+            if (race == "nar") {
+                //Human: Nar
+                var randFemale = narFemaleFirstNames[Math.floor(Math.random() * narFemaleFirstNames.length)];
+                var randMale = narMaleFirstNames[Math.floor(Math.random() * narMaleFirstNames.length)];
+                var randLast = narLastNames[Math.floor(Math.random() * narLastNames.length)];
+            }
+
+            //Gender selection
             if (document.getElementById('gender_Male').checked) {
                 var randFullName = randMale.concat(randLast);
             } else if (document.getElementById('gender_Female').checked) {
                 var randFullName = randFemale.concat(randLast);
             }
+            //Output of name
             document.getElementById("demo").innerHTML = randFullName;
         }
 
