@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
 
     <h2>Name Generator</h2>
@@ -20,6 +21,8 @@
             <optgroup label="Humans">
                 <option value="arkaiun">Human (Arkaiun)</option>
                 <option value="bedine">Human (Bedine)</option>
+                <option value="calishite">Human (Calishite)</option>
+                <option value="chondathan">Human (Chondathan)</option>
                 <option value="ffolk">Human (Ffolk)</option>
                 <option value="gur">Human (Gur)</option>
                 <option value="halruaan">Human (Halruaan)</option>
@@ -45,6 +48,16 @@
         var bedineFemaleFirstNames = ["Aisha ", "Farah ", "Nura ", "Rashida ", "Zalebyeh "];
         var bedineMaleFirstNames = ["Aali ", "Rashid ", "Tahnon ", "Tanzim ", "Whalide "];
         var bedineLastNames = ["Alaii ", "Bordjia ", "Clelarra ", "Desai ", "Dakawa ", "Dursalai ", "Goldor ", "Iriphawa ", "Kellordrai ", "Lalajar ", "Qahtan ", "Yethtai ", "Zazalaar "]
+
+        //Human: Calishite
+        var calishiteFemaleFirstNames = ["Atala ", "Ceidil ", "Hama ", "Jasmal ", "Meilil ", "Seipora ", "Yasheira ", "Zasheida "];
+        var calishiteMaleFirstNames = ["Aseir ", "Bardeid ", "Haseid ", "Khemed ", "Mehmen ", "Sudeiman ", "Zasheir "];
+        var calishiteLastNames = ["Basha ", "Dumein ", "Jassan ", "Khalid ", "Mostana ", "Pashar ", "Rein "]
+
+        //Human: Chondathan
+        var chondathanFemaleFirstNames = ["Arveene ", "Esvele ", "Jhessail ", "Kerri ", "Lureene ", "Miri ", "Rowan ", "Shandri ", "Tessele "];
+        var chondathanMaleFirstNames = ["Darvin ", "Dorn ", "Evendur ", "Gorstag ", "Grim ", "Helm ", "Malark ", "Morn ", "Randal ", "Stedd "];
+        var chondathanLastNames = ["Amblecrown ", "Buckman ", "Dundragon ", "Evenwood ", "Greycastle ", "Tallstag "]
 
         //Human: Ffolk
         var ffolkFemaleFirstNames = ["Alicia ", "Gennifer ", "Meridith ", "Elaine ", "Olivia "];
@@ -86,8 +99,15 @@
         var ulutiunMaleFirstNames = ["Amak ", "Chu ", "Imnek ", "Kanut ", "Siku "];
         var ulutiunLastNames = [""]
 
-
-
+        //Chondathan: Chondathan
+        //Damaran: Damaran(written in Dethek)
+        //Illuskan: Illuskan
+        //Mulan: Chessentan, Mulhorandi, Untheric, or Thayan
+        //Rashemi: Rashemi
+        //Shou: Shou
+        //Tethyrian: Chondathan
+        //Tuigan: Tuigan
+        //Turami: Turmic
 
         function generateName() {
             var race = document.getElementById("raceSelect").value;
@@ -108,6 +128,25 @@
                 var language = "Midani"
                 var alphabet = "Thorass"
             }
+
+            if (race == "calishite") {
+                //Human: Bedine
+                var randFemale = calishiteFemaleFirstNames[Math.floor(Math.random() * calishiteFemaleFirstNames.length)];
+                var randMale = calishiteMaleFirstNames[Math.floor(Math.random() * calishiteMaleFirstNames.length)];
+                var randLast = calishiteLastNames[Math.floor(Math.random() * calishiteLastNames.length)];
+                var language = "Alzhedo"
+                var alphabet = "Thorass"
+            }
+
+            if (race == "chondathan") {
+                //Human: Bedine
+                var randFemale = chondathanFemaleFirstNames[Math.floor(Math.random() * chondathanFemaleFirstNames.length)];
+                var randMale = chondathanMaleFirstNames[Math.floor(Math.random() * chondathanMaleFirstNames.length)];
+                var randLast = chondathanLastNames[Math.floor(Math.random() * chondathanLastNames.length)];
+                var language = "Chondathan"
+                var alphabet = "Thorass"
+            }
+
             if (race == "ffolk") {
                 //Human: Ffolk
                 var randFemale = ffolkFemaleFirstNames[Math.floor(Math.random() * ffolkFemaleFirstNames.length)];
