@@ -1,15 +1,23 @@
 ﻿<!DOCTYPE html>
-<html>
+<html style="background-color:antiquewhite">
+<head>
+    <style>
+        input {
+            position: absolute;
+            left: 60px;
+              }
+    </style>
+</head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
 
-    <h2>Name Generator</h2>
+    <h2 style="font-family:fantasy">Name Generator</h2>
 
 
-    <p>
+    <p class="genders">
         <!--Racehere
         Subrace here. Both use <select>-->
-        Male:<input type="radio" name="gender" id="gender_Male" value="Male" />
+        Male: <input type="radio" name="gender" id="gender_Male" value="Male" />
         <br>
 
         Female:<input type="radio" name="gender" id="gender_Female" value="Female" />
@@ -18,6 +26,9 @@
         <button type="button" onClick="generateName()">Generate</button>
 
         <select id="raceSelect" onchange="generateName()">
+            <optgroup label="Dwarves">
+                <option value="shielddwarf">Dwarf (Shield)</option>
+            </optgroup>
             <optgroup label="Humans">
                 <option value="arkaiun">Human (Arkaiun)</option>
                 <option value="bedine">Human (Bedine)</option>
@@ -32,12 +43,18 @@
                 <option value="tuigan">Human (Tuigan)</option>
                 <option value="ulutiun">Human (Ulutiun)</option>
             </optgroup>
+
         </select>
 
     <p id="name">Name:</p>
     <p id="language">Language:</p>
     <p id="alphabet">Alphabet:</p>
     <script>
+
+        //Dwarf: Shield
+        var shielddwarfFemaleFirstNames = ["Amber ", "Artin ", "Audhild ", "Bardryn ", "Dagnal ", "Diesa ", "Eldeth ", "Falkrunn ", "Finellen ", "Gunnloda ", "Gurdis ", "Helja ", "Hlin ", "Kathra ", "Kristryd ", "Ilde ", "Liftrasa ", "Mardred ", "Riswynn ", "Sannl ", "Torbera ", "Torgga ", "Vistra "];
+        var shielddwarfMaleFirstNames = ["Adrik ", "Alberich ", "Baern ", "Barendd ", "Brottor ", "Bruenor ", "Dain ", "Darrak ", "Delg ", "Eberk ", "Einkil ", "Fargrim ", "Flint ", "Gardain ", "Harbek ", "Kildrak ", "Morgran ", "Orsik ", "Oskar ", "Rangrim ", "Rurik ", "Taklinn ", "Thoradin ", "Thorin ", "Tordek ", "Traubon ", "Travok ", "Ulfgar ", "Veit ", "Vondal "];
+        var shielddwarfLastNames = ["Balderk ", "Battlehammer ", "Brawnanvil ", "Dankil ", "Fireforge ", "Frostbeard ", "Gorunn ", "Holderhek ", "Ironfist ", "Loderr ", "Lutgehr ", "Rumnaheim ", "Strakeln ", "Torunn ", "Ungart "]
 
         //Human: Arkaiun
         var arkaiunFemaleFirstNames = ["Glouris ", "Maeve ", "Sevaera ", "Xaemarra ", "Zraela "];
@@ -112,6 +129,14 @@
         function generateName() {
             var race = document.getElementById("raceSelect").value;
 
+            if (race == "shielddwarf") {
+                //Human: Arkaiun
+                var randFemale = shielddwarfFemaleFirstNames[Math.floor(Math.random() * shielddwarfFemaleFirstNames.length)];
+                var randMale = shielddwarfMaleFirstNames[Math.floor(Math.random() * shielddwarfMaleFirstNames.length)];
+                var randLast = shielddwarfLastNames[Math.floor(Math.random() * shielddwarfLastNames.length)];
+                var language = "Dwarven"
+                var alphabet = "Dethek"
+            }
             if (race == "arkaiun") {
                 //Human: Arkaiun
                 var randFemale = arkaiunFemaleFirstNames[Math.floor(Math.random() * arkaiunFemaleFirstNames.length)];
